@@ -3,8 +3,8 @@
   "description": "A simple pie chart with embedded data.",
   "data": {
     "values": [
-      {"category": TV Shows, "value": 31.6},
-      {"category": Films, "value": 68.4}
+      {"category": TV Shows, "value": 31.6%},
+      {"category": Films, "value": 68.4%}
     ]
   },
   "mark": "arc",
