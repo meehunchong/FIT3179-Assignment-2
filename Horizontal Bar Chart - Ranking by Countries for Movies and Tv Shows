@@ -1,1 +1,17 @@
 
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {"url": "data/netflix_titles.csv", "formatType" : "csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {"aggregate": "count", "field": "type",
+          "type" : "nominal",
+          "sort": "descending",
+          "title" : Amount of Content Available Per Country},
+    "y": {"field": "country"},
+    "color": {"field": "type",
+    "type": "nominal"
+    "title" : Countries}
+  }
+}
+
