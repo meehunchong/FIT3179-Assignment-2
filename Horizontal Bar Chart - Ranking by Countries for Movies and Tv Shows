@@ -1,47 +1,38 @@
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 500,
   "height":500,
   "data": {
-    "values": [
-      {"name": "United States", "count": 2032},
-      {"name": "India", "count": 777},
-      {"name": "United Kingdom", "count": 348},
-      {"name": "Japan", "count": 176},
-      {"name": "Canada", "count": 141},
-      {"name": "South Korea", "count": 136},
-      {"name": "Spain", "count": 117},
-      {"name": "France", "count": 90},
-      {"name": "Mexico", "count": 83},
-      {"name": "Turkey", "count": 79},
-      {"name": "Australia", "count": 71},
-      {"name": "Taiwan", "count": 69},
-      {"name": "Hong Kong", "count": 51},
-      {"name": "Thailand", "count": 50},
-      {"name": "Brazil", "count": 50}
-    ]
+    "url": "https://raw.githubusercontent.com/meehunchong/FIT3179-Assignment-2/main/Datasets/Top%2010%20Countries%20with%20most%20content.csv"
   },
-  "encoding": {
-    "y": {"field": "name", "type": "nominal", "sort": "-x", "title": null},
-    "x": {"field": "count", "type": "quantitative", "title": null}
+  "width" : 300,
+  "height" : 300,
+   "encoding": {
+    "y": {
+      "field": "Country", 
+      "type": "nominal", 
+      "sort": "d",
+      "title": "Countries"},
+    "x": {
+      "field": "Total Value", 
+      "type": "quantitative",  
+      "title": "Number of Content"}
   },
   "layer": [{
     "mark": "bar",
     "encoding": {
+        "tooltip": [{"field" : "Total Value", "type": "nominal", "title" :"Number of Content"}],
       "color": {
-        "field": "count",
+        "field": "Total Value",
         "type": "quantitative",
-        "title": "Countries with most content"
+        "title": "Total number of Content",
+        "scale": {"range": ["purple", "teal"]}
       }
     }
   }, {
-    "mark": {
+   "mark": {
       "type": "text",
-      "align": "right",
-      "xOffset": -4,
-      "aria": false
+      "align": "right"
     }
   }]
-  
 }
