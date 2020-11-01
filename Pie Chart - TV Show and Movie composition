@@ -1,16 +1,26 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "description": "A simple pie chart with embedded data.",
+  "description": "Pie Chart to show composition between TV and Movies.",
   "data": {
     "values": [
-      {"category": TV Shows, "value": 31.6%},
-      {"category": Films, "value": 68.4%}
+      {"category": "TV Shows", "value": 31.6},
+      {"category": "Films", "value": 68.4}
     ]
   },
+  "width": 300,
+  "height": 300,
+  "title": "Percentage between TV and Movie Content on Netflix",
   "mark": "arc",
   "encoding": {
-    "theta": {"field": "value", "type": "quantitative"},
-    "color": {"field": "category", "type": "nominal"}
+    "theta": {"field": "value", "type": "quantitative", "stack": true},
+      "tooltip": 
+      [{"field": "value", "title" : "Percentage of Content"},
+       {"field" : "category", "title": "Type"}],
+    "color": {
+      "field": "category", 
+      "type": "nominal", 
+      "legend" : "category", 
+      "scale" : {"scheme": "category20"}}
   },
   "view": {"stroke": null}
 }
