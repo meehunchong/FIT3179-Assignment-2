@@ -1,17 +1,47 @@
 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "data": {"url": https://raw.githubusercontent.com/meehunchong/FIT3179-Assignment-2/main/netflix_titles.csv", "formatType" : "csv"},
-  "mark": "bar",
+  "width": 500,
+  "height":500,
+  "data": {
+    "values": [
+      {"name": "United States", "count": 2032},
+      {"name": "India", "count": 777},
+      {"name": "United Kingdom", "count": 348},
+      {"name": "Japan", "count": 176},
+      {"name": "Canada", "count": 141},
+      {"name": "South Korea", "count": 136},
+      {"name": "Spain", "count": 117},
+      {"name": "France", "count": 90},
+      {"name": "Mexico", "count": 83},
+      {"name": "Turkey", "count": 79},
+      {"name": "Australia", "count": 71},
+      {"name": "Taiwan", "count": 69},
+      {"name": "Hong Kong", "count": 51},
+      {"name": "Thailand", "count": 50},
+      {"name": "Brazil", "count": 50}
+    ]
+  },
   "encoding": {
-    "x": {"aggregate": "count", "field": "type",
-          "type" : "nominal",
-          "sort": "descending",
-          "title" : Amount of Content Available Per Country},
-    "y": {"field": "country"},
-    "color": {"field": "type",
-    "type": "nominal"
-    "title" : Countries}
-  }
+    "y": {"field": "name", "type": "nominal", "sort": "-x", "title": null},
+    "x": {"field": "count", "type": "quantitative", "title": null}
+  },
+  "layer": [{
+    "mark": "bar",
+    "encoding": {
+      "color": {
+        "field": "count",
+        "type": "quantitative",
+        "title": "Countries with most content"
+      }
+    }
+  }, {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "xOffset": -4,
+      "aria": false
+    }
+  }]
+  
 }
-
