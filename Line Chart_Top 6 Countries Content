@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
     "description": "Number of TV and Movie Contents by Top 6 Countries.",
   "data": {
-    "url": "https://raw.githubusercontent.com/meehunchong/FIT3179-Assignment-2/main/Release%20Years%20of%20Netflix%20Content%20from%20Top%206%20Countries.csv"
+    "url": "https://raw.githubusercontent.com/meehunchong/FIT3179-Assignment-2/main/Datasets/Release%20Years%20of%20Netflix%20Content%20from%20Top%206%20Countries.csv"
   },
   "width": 500,
   "height": 400,
