@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/meehunchong/FIT3179-Assignment-2/main/Release%20Years%20of%20Netflix%20Content%20from%20Top%206%20Countries.csv"
+  },
+  "width": 500,
+  "height": 400,
+  "encoding": {"x": {"field": "Release_Year", "type": "temporal", "title": "Year"}},
+  "title": "Number of TV and Movie Contents by Top 6 Countries",
+  "layer": [
+    {
+      "encoding": {
+        "color": {"field": "Country", "type": "nominal", "title": "Country"},
+        "y": {"field": "Value", "type": "quantitative"}
+      },
+      "layer": [
+        {"mark": "line"},
+        {"transform": [{"filter": {"selection": "hover"}}], "mark": "point"}
+      ]
+    },
+    {
+      "transform": [{"pivot": "Country", "value": "Value", "groupby": ["Release_Year"]}],
+      "mark": "rule",
+      "encoding": {
+        "opacity": {
+          "condition": {"value": 0.5, "selection": "hover"},
+          "value": 0
+        },
+        "tooltip": [
+          {
+            "field": "Release_Year",
+            "type": "temporal",
+            "timeUnit": "year",
+            "title": "Year"
+          },
+          {
+            "field": "United States",
+            "type": "quantitative"
+          },
+          {
+            "field": "India",
+            "type": "quantitative"
+          },
+          {
+            "field": "Japan",
+            "type": "quantitative"
+          },
+          {
+            "field": "Canada",
+            "type": "quantitative"
+          },
+          {
+            "field": "South Korea",
+            "type": "quantitative"
+          }
+        ]
+      },
+      "selection": {
+        "hover": {
+          "type": "single",
+          "fields": ["Release_Year"],
+          "nearest": true,
+          "on": "mouseover",
+          "empty": "none",
+          "clear": "mouseout"
+        }
+      }
+    }
+  ],
+  "config": {}
+}
